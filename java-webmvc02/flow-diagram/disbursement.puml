@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+alt Customer Register
+Customer -> Amartha: Register Data
+Amartha -> Dukcapil: Check Data Customer
+Amartha <-- Dukcapil: Response Data Customer
+Amartha --> Customer: Response Register
+end
+
+alt Customer Loan Request
+Customer -> Amartha: Request Loan
+Amartha -> OJK: Check Pending Loan
+Amartha <-- OJK: Pending Loan Response
+Amartha -> Bank: Check Account Number
+Amartha <-- Bank: Account Number Response
+Amartha -> Bank : Transfer Amount Request
+Amartha <-- Bank : Transfer Amount Response
+Amartha <-- Amartha : Update Status Loan
+Customer <-- Amartha: Loan Response
+end
+@enduml

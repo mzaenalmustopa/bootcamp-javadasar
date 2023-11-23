@@ -1,0 +1,44 @@
+<!-- card mulai -->
+<form th:action="@{~/gedung/update}" id="form-input" method="post" th:object="${gedung}">
+    <div class="card">
+        <div class="card-header bg-warning">
+            <h3 class="card-title">New Gedung</h3>
+        </div>
+
+        <div class="card-body row">
+            <!--id di hidden-->
+            <input type="hidden" id="id" th:field="*{id}">
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="code">Kode</label>
+                    <input id="code" type="text" th:field="*{code}" th:class="${#fields.hasErrors('code')} ? 'form-control is-invalid': 'form-control'">
+                    <span th:if="${#fields.hasErrors('code')}" class="error invalid-feedback" th:errors="*{code}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input id="name" type="text" th:field="*{name}" th:class="${#fields.hasErrors('name')} ? 'form-control is-invalid': 'form-control'">
+                    <span th:if="${#fields.hasErrors('name')}" class="error invalid-feedback" th:errors="*{name}">pesan error</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="jmlLantai">Jml Lantai</label>
+                    <input  id="jmlLantai" type="text" th:field="*{jmlLantai}" th:class="${#fields.hasErrors('jmlLantai')} ? 'form-control is-invalid': 'form-control'"/>
+                    <span th:if="${#fields.hasErrors('jmlLantai')}" class="error invalid-feedback" th:errors="*{jmlLantai}">pesan error</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea  id="alamat" th:field="*{alamat}" th:class="${#fields.hasErrors('alamat')} ? 'form-control is-invalid': 'form-control'"> </textarea>
+                    <span th:if="${#fields.hasErrors('alamat')}" class="error invalid-feedback" th:errors="*{alamat}">pesan error</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+    </div>
+</form>

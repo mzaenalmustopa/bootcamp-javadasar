@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add Customer</h1>
+<form th:action="@{~/customer/update}" method="post">
+  <input type="hidden" name="id" th:value="${data.id}">
+  <label>Account No :</label><br>
+  <input type="text" name="AccountNo" th:value="${data.accountNo}"><br>
+
+  <label>Name :</label><br>
+  <input type="text" name="name" th:value="${data.name}"><br>
+
+  <label>Email:</label><br>
+  <input type="text" name="email" th:value="${data.email}"><br>
+
+  <label>PhoneNumber:</label><br>
+  <input type="text" name="phoneNumber" th:value="${data.phoneNumber}"><br>
+
+  <label>Address:</label><br>
+  <input type="text" name="address" th:value="${data.address}"><br>
+
+  <button type="submit">Update</button>
+
+</form>
+</body>
+</html>

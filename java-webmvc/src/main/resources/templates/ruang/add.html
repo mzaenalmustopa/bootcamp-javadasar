@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add Fakultas</h1>
+    <form th:action="@{~/fakultas/save}" method="post">
+        <label>Kode</label> <br>
+        <input type="text" name="code" id="code"> <br/>
+
+        <label>Nama</label> <br>
+        <input type="text" name="name" id="name"> <br/>
+
+        <label>Alamat</label> <br>
+        <textarea name="alamat" id="alamat" rows="5" cols="20"> </textarea><br/>
+
+        <button type="submit">Simpan</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Spring -> Security: Add dependency di pom.xml
+Spring -> Security: Reload ulang project
+Spring -> Security: Tambahkan Security config
+Spring -> Security: Tambahkan User Entity dan Role Entity
+Spring -> Security: Tambahkan User Repo dan Role Repo
+Spring -> Security: Tambahkan User service dan Role Service
+Spring -> Security: Tambahkan User Principal dan User Principal Service
+
+@enduml

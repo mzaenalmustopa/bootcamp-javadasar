@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>Index Fakultas</h1>
+  <a th:href="@{~/fakultas/add}">New Fakultas</a>
+  <table>
+    <thead>
+      <tr>
+        <td>Kode</td>
+        <td>Nama Fakultas</td>
+        <td>Alamat</td>
+        <td>#Action</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="data : ${dataList}">
+        <td th:text="${data.code}"></td>
+        <td th:text="${data.name}"></td>
+        <td th:text="${data.alamat}"></td>
+        <td>
+          <a th:href="@{~/fakultas/detail/{id}(id=${data.id})}">Detail</a> &nbsp;
+          <a th:href="@{~/fakultas/edit/{id}(id=${data.id})}">Edit</a> &nbsp;
+          <a th:href="@{~/fakultas/delete/{id}(id=${data.id})}" onclick="return confirm('Kamu yakin akan delete akuuuuh?')">Delete</a> &nbsp;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

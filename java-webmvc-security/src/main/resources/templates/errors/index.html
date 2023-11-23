@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container-fluid" layout:fragment="header">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Error Page</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Error Page</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row" layout:fragment="content">
+        <div class="error-page">
+            <h2 class="headline text-warning">Error</h2>
+            <div class="error-content">
+                <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+                <p>
+                    We could not find the page you were looking for.
+                    Meanwhile, you may <a th:href="@{~/dashboard}">return to dashboard</a> or try using the search form.
+                </p>
+            </div>
+            <!-- /.error-content -->
+        </div>
+        <!-- /.error-page -->
+    </div>
+</body>
+</html>

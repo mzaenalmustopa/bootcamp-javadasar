@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customer</title>
+</head>
+<body>
+<h1>Customer</h1>
+<a th:href="@{~/customer/add}">Add new customer</a>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>AccountNo</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>PhoneNumber</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr th:each="item : ${dataList}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.accountNo}"></td>
+      <td th:text="${item.name}"></td>
+      <td th:text="${item.email}"></td>
+      <td th:text="${item.address}"></td>
+      <td th:text="${item.phoneNumber}"></td>
+      <td th:text="${item.phoneNumber}"></td>
+      <td>
+        <a th:href="@{/customer/edit/{id}(id=${item.id})}">Edit</a>
+        <a th:href="@{/customer/detail/{id}(id=${item.id})}">Detail</a>
+        <a th:href="@{/customer/delete/{id}(id=${item.id})}">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+      <h1 class="m-0">Jurusan</h1>
+    </div><!-- /.col -->
+    <div class="col-sm-6">
+      <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Jurusan</li>
+      </ol>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <!-- card mulai -->
+      <div class="card">
+        <!-- header -->
+        <div class="card-header bg-success">
+          <h3 class="card-title">Jurusan</h3>
+
+          <!--- header tools -->
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+                <a th:href="@{~/mahasiswa/add}" id="btn-add" class="btn btn-primary">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- tools end -->
+        </div>
+        <!-- header end -->
+
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <td>Kode</td>
+                <td>Nama Jurusan</td>
+                <td>Alamat</td>
+                <td>#Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="data : ${dataList}">
+                <td th:text="${data.code}"></td>
+                <td th:text="${data.name}"></td>
+                <td th:text="${data.alamat}"></td>
+                <td>
+                  <a th:href="@{~/jurusan/detail/{id}(id=${data.id})}" class="btn btn-xs btn-info">
+                    <i class="fas fa-eye"></i>
+                  </a> &nbsp;
+                  <a th:href="@{~/jurusan/edit/{id}(id=${data.id})}" class="btn btn-xs btn-warning">
+                    <i class="fas fa-edit"></i>
+                  </a> &nbsp;
+                  <a th:href="@{~/jurusan/delete/{id}(id=${data.id})}" class="btn btn-xs btn-danger" onclick="return confirm('Kamu yakin akan delete akuuuuh?')">
+                    <i class="fas fa-trash"></i>
+                  </a> &nbsp;
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- modal -->
+    <div class="modal fade" id="modal-form">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+  </div>
+  <script layout:fragment="client-script">
+    $("#btn-add").on("click", function (e){
+      e.preventDefault();
+      var url = $(this).attr('href');
+      $.ajax({
+        url:url,
+        dataType: 'HTML',
+        method: 'GET',
+        success: function (result){
+          $('#modal-form').find('.modal-content').html(result);
+          $("#modal-form").modal('show');
+        }
+      })
+    })
+  </script>
+</body>
+</html>

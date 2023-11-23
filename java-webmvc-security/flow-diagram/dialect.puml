@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+thymeleaf -> Spring: Dependency di pom.xml
+thymeleaf -> Spring: AppConfig di package.config
+thymeleaf -> Spring: Download AdminLTE.io dan Extract
+thymeleaf -> Spring: buat folder fragment dan layout \ndi di templates
+thymeleaf -> Spring: buat main.html dari adminlt/index.html
+@enduml

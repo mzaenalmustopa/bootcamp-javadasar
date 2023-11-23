@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{~/product/add}">Add</a>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kode</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="product :${listProduct}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.code}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.category}"></td>
+            <td th:text="${product.description}"></td>
+            <td>Rp.<strong th:text="${product.price}"></strong></td>
+            <td><strong th:text="${product.stock}"></strong>pcs</td>
+        </tr>
+    </tbody>
+
+    <tr>
+        <td colspan="8">Jumlah Data</td>
+        <td><strong th:text="${jmlData}">Item</strong></td>
+    </tr>
+</table>
+</body>
+</html>

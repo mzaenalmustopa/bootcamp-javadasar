@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+</head>
+<body>
+<h1>Add Product</h1>
+<form th:action="@{~/product/save}" method="post">
+
+    <label>Id</label> <br>
+    <input type="text" name="id" id="id"> </br>
+
+    <label>Kode</label> <br>
+    <input type="text" name="code" id="code"> </br>
+
+    <label>Name</label><br>
+    <input type="text" name="name" id="name"> </br>
+
+    <label>Category</label><br>
+    <input type="text" name="categorty" id="category"> </br>
+
+    <label>Description</label><br>
+    <textarea type="text" name="descriptioin" id="description"></textarea> <br>
+
+    <label>Price</label><br>
+    <input type="text" name="price" id="price"> </br>
+
+    <label>Stock</label><br>
+    <input type="text" name="stock" id="stock"> </br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

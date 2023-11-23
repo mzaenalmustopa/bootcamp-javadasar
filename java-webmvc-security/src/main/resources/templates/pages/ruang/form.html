@@ -1,0 +1,29 @@
+<!-- card mulai -->
+<form th:action="@{~/fakultas/save}" method="post">
+    <div class="card">
+        <div class="card-header bg-warning">
+            <h3 class="card-title">New Fakultas</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group">
+                <label for="code">Kode</label>
+                <input id="code" type="text" name="code" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input id="name" type="text" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <textarea  id="alamat" name="alamat" class="form-control"> </textarea>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+    </div>
+</form>

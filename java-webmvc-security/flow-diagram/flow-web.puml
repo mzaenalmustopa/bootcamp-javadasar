@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Client -> Server: Mengirim Request
+Server --> Client: Memberi Response
+
+Client -> Server: Request \nlocalhost:9090/fakultas
+
+Server -> Controller: Mencari @RequestMapping
+Controller --> Controller: Mencari Method Sesuai
+Controller -> Service : Meneruskan Request
+Service -> Repository : Query ke Database
+Service <-- Repository : Response Database
+Controller <-- Service : Meneruskan Data \ndari Repo ke Controller
+Server <-- Controller : Response Data
+Client <-- Server: another authentication Response
+@enduml
